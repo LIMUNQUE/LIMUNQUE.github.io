@@ -16,7 +16,7 @@ body{
     font-weight: bold;
     font-size: 30;
     margin: 0;
-    padding: 0em;
+    padding: 0.5em;
 }
 
 #cabecera #tagline
@@ -51,4 +51,11 @@ body{
 {
     background: white;
     padding: 1em;
+}
+#footer
+{
+    background: #777;
+    color: white;
+    text-align: center;
+    padding: 0.5em;
 }
