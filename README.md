@@ -1,10 +1,10 @@
-# hyperblog
-Un blog para aprender los fundamentos de git y github de platzi 💚
->El curso de Git y github de Platzi es lo que me hacia falta para triplicar mi salario y lanzarme a la industria.
+---
+description: Un ingeniero mas
+coverY: 0
+---
 
->- a
+# Welcome!
 
-En este curso vemos de todo:
-- Comandos de git
-- Flujo de trabajo de github
-- Buenas practicas
+## Welcome aboard!
+
+Welcome to the company wiki! Here you'll find everything you need to know about the company.
