@@ -7,9 +7,9 @@ coverY: 0
 
 ## Un estudiante mas
 
-Hola! Mi nombre es Joshua y soy un estudiante de ingenieria mecatrónica. Perdido  en alguna parte de latinoamerica.
+Hola! Mi nombre es Joshua y soy un estudiante de ingeniería mecatrónica. Perdido en alguna parte de latinoamérica.
 
-Desee crear este espacio principalmente, como un medio para ayudarme a mi mismo subiendo el material que aprendo en la universidad. Pero, me sentiría feliz si de esta manera tambien pueda ayudar a alguien mas en mi situación.
+Desearía crear este espacio principalmente, como un medio para ayudarme a mí mismo subiendo el material que aprendo en la universidad. Pero, me sentiría feliz si de esta manera también puedo apoyar a alguien más en mi situación.
 
 Iré subiendo una lista de las materias que vea, asi que estudien mucho
 
