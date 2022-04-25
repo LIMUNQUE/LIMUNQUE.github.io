@@ -1,16 +1,6 @@
----
-description: Visita mi página principal en limunque.github.io
-coverY: 0
----
+# Misty Blunch's Porfolio
 
-# Bienvenido
+##### Simple portfolio made with HTML5, CSS, Bulma Framework and JS.
+##### You can clone it and create your own portfolio too :squirrel:
 
-## Un estudiante mas
-
-Hola! Mi nombre es Joshua y soy un estudiante de ingeniería mecatrónica. Perdido en alguna parte de latinoamérica.
-
-Desearía crear este espacio principalmente, como un medio para ayudarme a mí mismo subiendo el material que aprendo en la universidad. Pero, me sentiría feliz si de esta manera también puedo apoyar a alguien más en mi situación.
-
-Iré subiendo una lista de las materias que vea, asi que estudien mucho
-
-#### _Hecho con 💚 por_ [_LIMUNQUE_](https://limunque.github.io)__
+###### Made with :heart:
