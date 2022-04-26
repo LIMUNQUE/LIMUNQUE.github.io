@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
     <head>
         <script src="https://cdn.tailwindcss.com"></script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LIMUNQUEs</title>
+        <title>LIMUNQUE</title>
         
     </head>
     <body>
@@ -38,27 +38,54 @@
                 <div></div>  
             </nav>
             <section class="grid place-content-center">
-                <img src="img/jellyfish.png" class="rounded mt-7" alt="">
+                <img src="img/jellyfish.png" alt="immortal-jellyfish" class="rounded mt-7" alt="">
                 <p class="mt-6 place-self-center font-bold text-2xl">Joshua Cobos</p>
                 <p class="mb-9 place-self-center text-xl">Developer</p>
             </section>
         </header>
 
-        <section id="About" class=" grid grid-cols-2">
-            <div class="grid bg-blue-300 place-content-center text-4xl font-bold">
-                <p class="en">About me</p>
-                <p class="es">Sobre mi</p>
+        <section id="About" class=" grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2">
+            <div class="grid bg-gradient-to-r from-blue-300 to-cyan-200 place-content-center text-5xl font-bold">
+                <p class="en mb-32 mt-32 xl:mb-0 xl:mt-0 lg:mb-0 lg:mt-0 md:mb-0 md:mt-0">About me</p>
+                <p class="es mb-32 mt-32 xl:mb-0 xl:mt-0 lg:mb-0 lg:mt-0 md:mb-0 md:mt-0">Sobre mi</p>
             </div>
-            <div>
-                <p class="text-3xl ml-6 mt-6"> Hi! </p>
-                <p class="text-xl ml-6">I'm a web Developer <br>
+            <div class="grid">
+                <p class="en text-3xl ml-6 mt-6 mb-4"> Hi! </p>
+                <p class="es text-3xl ml-6 mt-6"> Hola! </p>
+                <p class="en text-xl ml-6">I'm a web Developer<br>
                     Enthusiast for technologies, code and 3d design</p>
-                <p class="ml-6">Currently, I'm studying mechatronics engineering somewhere of Latin America.
-                    I'm searching to inprove my knowledge in full-stack technologies. I also enjoy coding and making 3d designs for games and animations. <br>
-                    In the future, I would like to dedicate my full time in developing human-machine interfaces, artificial inteligence and robotics technologies.
-                </p>
+                <p class="es text-xl ml-6">Soy un Desarrollador web<br>
+                  Entusiasta por la tecnologia, codigo y diseño 3d</p>
+
+                <p class="en ml-6 mb-4">Currently, I'm studying Mechatronics engineering somewhere of Latin America.
+                    I'm searching to inprove my knowledge in full-stack technologies. I also enjoy coding and making 3d designs for games and animations. </p>
+                <p class="es ml-6 mb-4">Actualmente, Estoy estudiando ingenieria Mecatrónica en algún lugar de latinoamerica.
+                    Busco mejorar mi conocimiento en tecnologias full-stack. Tambien disfruto escribiendo codigo y haciendo diseños 3d para juegos y animaciones. </p>
+
+                <img src="img/coding.jpeg" alt="me-coding" class="w-2/5 rounded place-self-center m-4">
+                
+                <p class="en ml-6 mb-4">In the future, I would like to dedicate my full time in developing brain-computer interfaces, artificial inteligence and robotics technologies.</p>
+                <p class="es ml-6 mb-4">En el futuro, Me gustaria dedicar todo mi tiempo en desarrollar tecnologias en interfaces cerebro-computadora, inteligencia artificial y robótica.</p>
             </div>
         </section>
+
+        <section id="Skills" class="grid place-content-center">
+            <p class="m-5 text-5xl">What did I use in Tech?</p>
+            <p class="text-3xl mb-2">Programing</p>
+            <div class="flex">
+                <img src="skills/html5.png" class="h-12 w-12 mr-3" alt="html5">
+                <img src="skills/css3.png" class="h-12 w-12 mr-3" alt="css3">
+                <img src="skills/javascript.png" class="h-12 w-12 mr-3" alt="javascript">
+            </div>
+            
+        </section>
+
+        <section id="Projects"></section>
+
+        <section id="Blog"></section>
+
+        <section id="Contact"></section>
+
         <script src="js/index.js"></script>
     </body>
 </html>
