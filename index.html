@@ -69,22 +69,57 @@
             </div>
         </section>
 
-        <section id="Skills" class="grid place-content-center">
-            <p class="m-5 text-5xl">What did I use in Tech?</p>
-            <p class="text-3xl mb-2">Programing</p>
-            <div class="flex">
+        <section id="Skills" class="grid place-content-center bg-gray-100">
+            <p class="mt-10 mb-5 text-5xl">What did I use in Tech?</p>
+            <p class="text-3xl mb-2">Frontend</p>
+            <div class="flex mb-4">
                 <img src="skills/html5.png" class="h-12 w-12 mr-3" alt="html5">
                 <img src="skills/css3.png" class="h-12 w-12 mr-3" alt="css3">
                 <img src="skills/javascript.png" class="h-12 w-12 mr-3" alt="javascript">
             </div>
+            <section id="hidden-skills">
+                <p class="text-3xl mb-2">Frameworks</p>
+                <div class="flex mb-4">
+                    <img src="skills/bootstrap.png" class="h-12 w-12 mr-3" alt="bootstrap">
+                    <img src="skills/tailwind.png" class="h-12 w-12 mr-3" alt="tailwind">
+                    <img src="skills/react.png" class="h-12 w-12 mr-3" alt="react">
+                </div>
+
+                <p class="text-3xl mb-2">Engineering</p>
+                <div class="flex mb-4">
+                    <img src="skills/arduino.png" class="h-12 w-12 mr-3" alt="arduino">
+                    <img src="skills/python.png" class="h-12 w-12 mr-3" alt="python">
+                </div>
+            </section>
+
+            <button onclick=showSkills() class="place-self-end m-6 w-1/2 bg-blue-400 px-4 py-2 rounded text-white hover:bg-blue-600 transition shadow-xl shadow-blue-200/60">
+                <p class="en">See more</p>
+                <p class="es">Ver mas</p>
+            </button>
             
         </section>
 
-        <section id="Projects"></section>
+        <section id="Projects" class="grid place-content-center">
+            <p class="mt-10 mb-5 text-5xl place-self-center">what projects have I done?</p>
+            <div class="grid grid-cols-3">
+                <a href="https://limunque.gitbook.io" target="_blank">
+                    <img class="h-25 w-30 mr-3" src="img/estudiante.png" alt="blog">
+                </a>
 
-        <section id="Blog"></section>
+                <a href="https://create-react-app-todo.vercel.app/"  target="_blank">
+                    <img class="h-25 w-30 mr-3" src="img/todo.png" alt="blog">
+                </a>
 
-        <section id="Contact"></section>
+                <a href="https://vite-calculator.netlify.app/" target="_blank">
+                    <img class="h-25 w-30 mr-3" src="img/calculator.png" alt="blog">
+                </a>
+                
+            </div>
+        </section>
+
+        <section id="Blog" class="grid place-content-center"></section>
+
+        <section id="Contact" class="grid place-content-center"></section>
 
         <script src="js/index.js"></script>
     </body>
