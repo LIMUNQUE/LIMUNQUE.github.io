@@ -6,158 +6,337 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LIMUNQUE's portafolio">
-    <meta name="keywords" content="portafolio, joshua cobos valle, LIMUNQUE, developer">
+    <meta name="description" content="Joshua Cobos (LIMUNQUE) - Mechatronics Engineer Portfolio">
+    <meta name="keywords" content="portafolio, joshua cobos valle, LIMUNQUE, mechatronics engineer, robotics, computer vision, AI">
     <meta name="author" content="LIMUNQUE">
     <meta name="google" content="notranslate" />
-    <meta property="og:title" content="LIMUNQUE, web developer">
-    <meta property="og:image" content="img/home.png">
-    <meta property="og:description"
-        content="Hi I'm a Web Developer from Ecuador. I enjoy coding and making 3d designs.">
+    <meta property="og:title" content="LIMUNQUE - Mechatronics Engineer">
+    <meta property="og:image" content="img/home.png"> <!-- Consider updating this image -->
+    <meta property="og:description" content="Portfolio of Joshua Cobos, a Mechatronics Engineer specializing in computer vision, robotics, and AI.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>LIMUNQUE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>LIMUNQUE - Mechatronics Engineer</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        opensans: ['Open Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        'slate-850': '#172033', // Custom darker slate
+                        'teal-custom': '#14b8a6', // Teal-500
+                        'teal-hover': '#0d9488', // Teal-600
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Basic scrollbar styling for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569; /* slate-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* slate-500 */
+        }
+    </style>
 </head>
 
-<body>
-    <section class="bg-blue-200 hidden">
-        <nav class="container flex flex-wrap justify-center md:justify-between items-center p-5">
-            <select id="lang-opt" onchange="selectLan(this)" class="flex items-center">
-                <option value="en">english</option>
-                <option value="es">spanish</option>
-            </select>
+<body class="bg-slate-900 text-slate-300 font-opensans antialiased">
 
-            <div class="flex space-x-5 md:space-x-10 font-bold">
-                <a class="hover:text-sky-400 transition-colors" href="#About">
-                    <p class="en">About</p>
-                    <p class="es">Sobre</p>
+    <!-- Hero Section -->
+    <header id="hero" class="bg-slate-850 text-white min-h-screen flex flex-col justify-center items-center p-6 hidden relative overflow-hidden pt-20 md:pt-6"> <!-- Added pt for fixed nav space -->
+        <!-- Navigation -->
+        <nav id="main-nav" data-aos="fade-down" data-aos-delay="500" class="fixed top-0 left-0 right-0 bg-slate-850 shadow-lg container flex flex-wrap justify-between items-center py-4 px-6 mx-auto z-50 transition-all duration-300 ease-in-out">
+            <div class="font-montserrat font-bold text-xl text-teal-custom">LIMUNQUE</div>
+            
+            <!-- Hamburger Button -->
+            <div class="md:hidden flex items-center">
+                <select id="lang-opt-mobile" onchange="selectLan(this)" class="bg-slate-700 text-sm text-white border border-slate-600 rounded-md p-2 mr-3 focus:ring-2 focus:ring-teal-custom focus:border-teal-custom appearance-none transition-all duration-300 ease-in-out">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
+                </button>
+            </div>
+
+            <!-- Menu Links -->
+            <div id="menu-links" class="hidden md:flex md:items-center md:space-x-6 w-full md:w-auto mt-4 md:mt-0">
+                <a class="nav-link block md:inline-block py-2 md:py-0 text-slate-300 hover:text-teal-custom transition-colors duration-300 ease-in-out font-semibold" href="#hero-nav-target"> <!-- Changed href for Hero -->
+                    <p class="en">Home</p>
+                    <p class="es">Inicio</p>
                 </a>
-                <a class="hover:text-sky-400 transition-colors" href="#Skills">
+                <a class="nav-link block md:inline-block py-2 md:py-0 text-slate-300 hover:text-teal-custom transition-colors duration-300 ease-in-out font-semibold" href="#About">
+                    <p class="en">About</p>
+                    <p class="es">Sobre mí</p>
+                </a>
+                <a class="nav-link block md:inline-block py-2 md:py-0 text-slate-300 hover:text-teal-custom transition-colors duration-300 ease-in-out font-semibold" href="#Skills">
                     <p class="en">Skills</p>
                     <p class="es">Habilidades</p>
                 </a>
-                <a class="hover:text-sky-400 transition-colors" href="#Projects">
+                <a class="nav-link block md:inline-block py-2 md:py-0 text-slate-300 hover:text-teal-custom transition-colors duration-300 ease-in-out font-semibold" href="#Projects">
                     <p class="en">Projects</p>
-                    <p class="es">Projectos</p>
+                    <p class="es">Proyectos</p>
                 </a>
-                <a class="hover:text-sky-400 transition-colors" href="#Blog" class="">Blog</a></li>
-                <a class="hover:text-sky-400 transition-colors" href="#Contact" onclick="toContact()">
+                <a class="nav-link block md:inline-block py-2 md:py-0 text-slate-300 hover:text-teal-custom transition-colors duration-300 ease-in-out font-semibold" href="#Blog">Blog</a>
+                <a class="nav-link block md:inline-block py-2 md:py-0 text-slate-300 hover:text-teal-custom transition-colors duration-300 ease-in-out font-semibold" href="#Contact">
                     <p class="en">Contact</p>
                     <p class="es">Contacto</p>
                 </a>
+                <select id="lang-opt-desktop" onchange="selectLan(this)" class="hidden md:block bg-slate-700 text-sm text-white border border-slate-600 rounded-md p-2 focus:ring-2 focus:ring-teal-custom focus:border-teal-custom appearance-none transition-all duration-300 ease-in-out ml-4">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                </select>
             </div>
-
-            <div></div>
         </nav>
-        <section class="grid place-content-center">
-            <img src="img/jellyfish.png" alt="immortal-jellyfish" class="rounded mt-7" alt="">
-            <p class="mt-6 place-self-center font-bold text-2xl">Joshua Cobos</p>
-            <p class="mb-9 place-self-center text-xl">Developer</p>
-        </section>
-    </section>
+        
+        <!-- Anchor for Hero section scrollspy -->
+        <div id="hero-nav-target" class="absolute top-0"></div>
 
-    <section id="About" class="hidden grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2">
-        <div class="grid bg-gradient-to-r from-blue-300 to-cyan-200 place-content-center text-5xl font-bold">
-            <p class="en mb-32 mt-32 xl:mb-0 xl:mt-0 lg:mb-0 lg:mt-0 md:mb-0 md:mt-0">About me</p>
-            <p class="es mb-32 mt-32 xl:mb-0 xl:mt-0 lg:mb-0 lg:mt-0 md:mb-0 md:mt-0">Sobre mi</p>
+        <div class="text-center z-0 pt-10 md:pt-0"> <!-- Added pt for fixed nav space on mobile if hero content is very high -->
+            <h1 data-aos="fade-down" class="text-5xl sm:text-6xl md:text-7xl font-montserrat font-bold mb-3">
+                <span class="en">Joshua Cobos</span>
+                <span class="es">Joshua Cobos</span>
+            </h1>
+            <p data-aos="fade-down" data-aos-delay="300" class="text-2xl sm:text-3xl md:text-4xl font-montserrat text-teal-custom mb-8">
+                <span class="en">Mechatronics Engineer</span>
+                <span class="es">Ingeniero Mecatrónico</span>
+            </p>
+            <a data-aos="fade-up" data-aos-delay="600" href="#About" class="bg-teal-custom hover:bg-teal-hover text-white font-montserrat font-bold py-3 px-10 rounded-lg text-lg transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl transform hover:scale-105">
+                <span class="en">Discover More</span>
+                <span class="es">Descubre Más</span>
+            </a>
         </div>
-        <div class="grid">
-            <p class="en text-3xl ml-6 mt-6 mb-4"> Hi! </p>
-            <p class="es text-3xl ml-6 mt-6"> Hola! </p>
-            <p class="en text-xl ml-6">I'm a web Developer<br>
-                Enthusiast for technologies, code and 3d design</p>
-            <p class="es text-xl ml-6">Soy un Desarrollador web<br>
-                Entusiasta por la tecnologia, codigo y diseño 3d</p>
+        <!-- Subtle decorative elements -->
+        <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-slate-900 to-transparent"></div>
+    </header>
 
-            <p class="en ml-6 mb-4">Currently, I'm studying Mechatronics engineering somewhere of Latin America.
-                I'm searching to inprove my knowledge in full-stack technologies. I also enjoy coding and making 3d
-                designs for games and animations. </p>
-            <p class="es ml-6 mb-4">Actualmente, Estoy estudiando ingenieria Mecatrónica en algún lugar de
-                latinoamerica.
-                Busco mejorar mi conocimiento en tecnologias full-stack. Tambien disfruto escribiendo codigo y haciendo
-                diseños 3d para juegos y animaciones. </p>
-
-            <img src="img/coding.jpeg" alt="me-coding" class="w-2/5 rounded place-self-center m-4">
-
-            <p class="en ml-6 mb-4">In the future, I would like to dedicate my full time in developing brain-computer
-                interfaces, artificial inteligence and robotics technologies.</p>
-            <p class="es ml-6 mb-4">En el futuro, Me gustaria dedicar todo mi tiempo en desarrollar tecnologias en
-                interfaces cerebro-computadora, inteligencia artificial y robótica.</p>
-        </div>
-    </section>
-
-    <section id="Skills" class="hidden grid place-content-center bg-gray-100">
-        <p class="en mt-10 mb-5 text-5xl">What technologies do I use?</p>
-        <p class="es mt-10 mb-5 text-5xl">¿Cueles tecnologias uso?</p>
-        <p class="text-3xl mb-2">Frontend</p>
-        <div class="flex mb-4">
-            <img src="skills/html5.png" class="h-12 w-12 mr-3" alt="html5">
-            <img src="skills/css3.png" class="h-12 w-12 mr-3" alt="css3">
-            <img src="skills/javascript.png" class="h-12 w-12 mr-3" alt="javascript">
-        </div>
-        <section id="hidden-skills">
-            <p class="text-3xl mb-2">Frameworks</p>
-            <div class="flex mb-4">
-                <img src="skills/bootstrap.png" class="h-12 w-12 mr-3" alt="bootstrap">
-                <img src="skills/tailwind.png" class="h-12 w-12 mr-3" alt="tailwind">
-                <img src="skills/react.png" class="h-12 w-12 mr-3" alt="react">
+    <!-- About Section -->
+    <section id="About" class="hidden py-16 lg:py-24 bg-slate-900" data-aos="fade-up">
+        <div class="container mx-auto px-6 max-w-screen-xl grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-16 items-center">
+            <div class="md:col-span-2 bg-slate-800 p-8 rounded-xl shadow-2xl flex justify-center items-center h-full" data-aos="fade-right" data-aos-delay="100">
+                <h2 class="text-4xl lg:text-5xl font-montserrat font-bold text-teal-custom text-center leading-tight">
+                    <p class="en">About Me</p>
+                    <p class="es">Sobre Mí</p>
+                </h2>
             </div>
-
-            <p class="text-3xl mb-2">Engineering</p>
-            <div class="flex mb-4">
-                <img src="skills/arduino.png" class="h-12 w-12 mr-3" alt="arduino">
-                <img src="skills/python.png" class="h-12 w-12 mr-3" alt="python">
+            <div class="md:col-span-3 text-slate-300" data-aos="fade-left" data-aos-delay="300">
+                <h3 class="en text-3xl font-montserrat font-semibold mb-5 text-teal-custom">Hi There!</h3>
+                <h3 class="es text-3xl font-montserrat font-semibold mb-5 text-teal-custom">¡Hola!</h3>
+                <p class="en text-lg mb-4 leading-relaxed font-opensans">I am a Mechatronics Engineer with extensive experience in computer vision (detection, segmentation, etc.) and robotics projects using ROS 2 (manipulators and autonomous robots). Passionate about cutting-edge technology, coding, and their application in intelligent systems.</p>
+                <p class="es text-lg mb-4 leading-relaxed font-opensans">Soy un Ingeniero Mecatrónico con amplia experiencia en visión artificial (detección, segmentación, etc.) y proyectos de robótica con ROS 2 (manipuladores y robots autónomos). Apasionado por la tecnología de vanguardia, la programación y su aplicación en sistemas inteligentes.</p>
+                <p class="en text-lg mb-4 leading-relaxed font-opensans">I hold a degree in Mechatronics Engineering and am dedicated to advancing my expertise in areas like artificial intelligence, machine learning, and their real-world applications in robotics and automation. I have a strong foundation in software development that supports these pursuits.</p>
+                <p class="es text-lg mb-4 leading-relaxed font-opensans">Poseo un título en Ingeniería Mecatrónica y estoy dedicado a expandir mi conocimiento en áreas como inteligencia artificial, aprendizaje automático y sus aplicaciones prácticas en robótica y automatización. Cuento con una sólida base en desarrollo de software que respalda estos objetivos.</p>
+                <img src="img/coding.jpeg" alt="Joshua Cobos working on a robotics project" class="w-full md:w-4/5 rounded-lg shadow-xl mx-auto my-8 transition-all duration-300 ease-in-out hover:scale-105" data-aos="zoom-in-up" data-aos-delay="500">
+                <p class="en text-lg leading-relaxed font-opensans">My goal is to contribute to impactful projects in computer vision, autonomous systems, and robotics, leveraging my skills to develop innovative solutions.</p>
+                <p class="es text-lg leading-relaxed font-opensans">Mi objetivo es contribuir a proyectos de impacto en visión por computadora, sistemas autónomos y robótica, utilizando mis habilidades para desarrollar soluciones innovadoras.</p>
             </div>
-        </section>
-
-        <button onclick=showSkills()
-            class="place-self-end m-6 w-1/2 bg-blue-400 px-4 py-2 rounded text-white hover:bg-blue-600 transition shadow-xl shadow-blue-200/60">
-            <p class="en">See more</p>
-            <p class="es">Ver mas</p>
-        </button>
-
-    </section>
-
-    <section id="Projects" class="hidden grid place-content-center pb-5">
-        <p class="en mt-10 mb-5 text-5xl place-self-center">what projects have I done?</p>
-        <p class="es mt-10 mb-5 text-5xl place-self-center">¿Que proyectos he hecho?</p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3">
-            <a href="https://limunque.gitbook.io" target="_blank">
-                <img class=" mr-3" src="img/estudiante.png" alt="blog">
-            </a>
-
-            <a href="https://create-react-app-todo.vercel.app/" target="_blank">
-                <img class=" mr-3" src="img/todo.png" alt="blog">
-            </a>
-
-            <a href="https://vite-calculator.netlify.app/" target="_blank">
-                <img class=" mr-3" src="img/calculator.png" alt="blog">
-            </a>
-
         </div>
     </section>
 
-    <section id="Blog" class="grid place-content-center"></section>
-
-    <section id="Contact" class="hidden grid place-content-center bg-sky-100">
-        <p class="en m-5 text-2xl">Find me on Twitter and Github</p>
-        <p class="es m-5 text-2xl">Encuentrame en twitter y Github</p>
-        <div class="text-6xl m-2 place-self-center">
-            <a href="https://twitter.com/joshuacobosval1" target="_blank"
-                class="fa fa-twitter m-3 transform hover:scale-150 transition"></a>
-            <a href="https://github.com/LIMUNQUE" target="_blank"
-                class="fa fa-github m-3 transform hover:scale-150 transition"></a>
+    <!-- Skills Section -->
+    <section id="Skills" class="hidden py-16 lg:py-24 bg-slate-850" data-aos="fade-up">
+        <div class="container mx-auto px-6 max-w-screen-xl">
+            <h2 class="text-4xl lg:text-5xl font-montserrat font-bold text-center mb-16 text-white" data-aos="fade-up">
+                <span class="en">Technical Proficiency</span>
+                <span class="es">Competencias Técnicas</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Category Card -->
+                <div class="bg-slate-800 p-6 rounded-xl shadow-xl hover:shadow-teal-custom/20 transition-all duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-center text-teal-custom">
+                        <span class="en">Programming</span>
+                        <span class="es">Programación</span>
+                    </h3>
+                    <div class="flex justify-center flex-wrap gap-5 items-center">
+                        <img src="skills/python.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Python" title="Python">
+                        <img src="skills/cplusplus.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="C++" title="C++">
+                        <img src="skills/javascript.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="JavaScript" title="JavaScript">
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl shadow-xl hover:shadow-teal-custom/20 transition-all duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-center text-teal-custom">
+                        <span class="en">Robotics & Vision</span>
+                        <span class="es">Robótica y Visión</span>
+                    </h3>
+                    <div class="flex justify-center flex-wrap gap-5 items-center">
+                        <img src="skills/ros.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="ROS" title="ROS">
+                        <img src="skills/gazebo.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Gazebo" title="Gazebo">
+                        <img src="skills/opencv.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="OpenCV" title="OpenCV">
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl shadow-xl hover:shadow-teal-custom/20 transition-all duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-center text-teal-custom">
+                        <span class="en">Engineering Tools</span>
+                        <span class="es">Herramientas</span>
+                    </h3>
+                    <div class="flex justify-center flex-wrap gap-5 items-center">
+                        <img src="skills/matlab.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="MATLAB" title="MATLAB">
+                        <img src="skills/solidworks.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="SolidWorks" title="SolidWorks">
+                        <img src="skills/arduino.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Arduino" title="Arduino">
+                        <img src="skills/git.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Git" title="Git">
+                        <img src="skills/linux.png" class="h-14 w-14 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Linux" title="Linux">
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl shadow-xl hover:shadow-teal-custom/20 transition-all duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-montserrat font-semibold mb-6 text-center text-teal-custom">
+                        <span class="en">Web Stack</span>
+                        <span class="es">Tecnologías Web</span>
+                    </h3>
+                    <div class="flex justify-center flex-wrap gap-5 items-center">
+                        <img src="skills/html5.png" class="h-12 w-12 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="HTML5" title="HTML5">
+                        <img src="skills/css3.png" class="h-12 w-12 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="CSS3" title="CSS3">
+                        <img src="skills/tailwind.png" class="h-12 w-12 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Tailwind CSS" title="Tailwind CSS">
+                        <img src="skills/react.png" class="h-12 w-12 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="React" title="React">
+                         <img src="skills/bootstrap.png" class="h-12 w-12 transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125" alt="Bootstrap" title="Bootstrap">
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="m-5 en">Or email me at <b>joshuacobosvalle@hotmail.com</b></p>
-        <p class="m-5 es">O escribeme por <b>joshuacobosvalle@hotmail.com</b></p>
-
     </section>
+
+    <!-- Projects Section -->
+    <section id="Projects" class="hidden py-16 lg:py-24 bg-slate-900" data-aos="fade-up">
+        <div class="container mx-auto px-6 max-w-screen-xl">
+            <h2 class="text-4xl lg:text-5xl font-montserrat font-bold text-center mb-16 text-white" data-aos="fade-up">
+                <span class="en">Featured Mechatronics Projects</span>
+                <span class="es">Proyectos Destacados de Mecatrónica</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group" data-aos="zoom-in-up" data-aos-delay="100">
+                    <a href="#" class="block">
+                        <img class="w-full h-56 object-cover group-hover:opacity-80 transition-opacity duration-300 ease-in-out" src="img/estudiante.png" alt="AI for Marine Conservation Project">
+                        <div class="p-6">
+                            <h3 class="text-xl font-montserrat font-semibold text-teal-custom mb-2">
+                                <span class="en">AI for Marine Conservation: Sea Lion Segmentation</span>
+                                <span class="es">IA para Conservación Marina: Segmentación de Lobos Marinos</span>
+                            </h3>
+                            <p class="text-sm text-slate-400 font-opensans leading-relaxed">
+                                <span class="en">Developed a computer vision system for the segmentation of sea lions in the Galapagos National Park, aiding in species conservation and study.</span>
+                                <span class="es">Sistema de visión artificial para la segmentación de lobos marinos en el Parque Nacional Galápagos, apoyando la conservación y estudio de la especie.</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="bg-slate-800 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group" data-aos="zoom-in-up" data-aos-delay="200">
+                    <a href="#" class="block">
+                        <img class="w-full h-56 object-cover group-hover:opacity-80 transition-opacity duration-300 ease-in-out" src="img/todo.png" alt="Forest Conservation Project">
+                        <div class="p-6">
+                            <h3 class="text-xl font-montserrat font-semibold text-teal-custom mb-2">
+                                <span class="en">Forest Conservation: Tree Canopy Segmentation</span>
+                                <span class="es">Conservación Forestal: Segmentación de Copas de Árboles</span>
+                            </h3>
+                            <p class="text-sm text-slate-400 font-opensans leading-relaxed">
+                                <span class="en">Applied a computer vision system for tree canopy segmentation in a protected forest, contributing to environmental monitoring and conservation efforts.</span>
+                                <span class="es">Aplicación de un sistema de visión para la segmentación de copas de árboles en un bosque protegido, contribuyendo al monitoreo ambiental y esfuerzos de conservación.</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="bg-slate-800 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group" data-aos="zoom-in-up" data-aos-delay="300">
+                    <a href="#" class="block">
+                        <img class="w-full h-56 object-cover group-hover:opacity-80 transition-opacity duration-300 ease-in-out" src="img/calculator.png" alt="Robotic Sorting System Project">
+                        <div class="p-6">
+                            <h3 class="text-xl font-montserrat font-semibold text-teal-custom mb-2">
+                                <span class="en">Robotic Sorting System with OpenCV</span>
+                                <span class="es">Sistema Robótico Clasificador con OpenCV</span>
+                            </h3>
+                            <p class="text-sm text-slate-400 font-opensans leading-relaxed">
+                                <span class="en">Engineered a robotic system using OpenCV for object classification and inverse kinematics for sorting colored boxes through computer vision.</span>
+                                <span class="es">Ingeniería de un sistema robótico con OpenCV para clasificación de objetos y cinemática inversa para separar cajas de colores mediante visión artificial.</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section Placeholder -->
+    <section id="Blog" class="hidden py-16 lg:py-24 bg-slate-850" data-aos="fade-up">
+        <div class="container mx-auto px-6 max-w-screen-xl text-center">
+            <h2 class="text-4xl lg:text-5xl font-montserrat font-bold text-white mb-6" data-aos="fade-up">
+                <span class="en">Insights & Articles</span>
+                <span class="es">Artículos y Reflexiones</span>
+            </h2>
+            <p class="text-lg text-slate-400 mb-8 font-opensans" data-aos="fade-up" data-aos-delay="200">
+                <span class="en">Coming soon! I'll be sharing my thoughts and experiences in Mechatronics, Robotics, AI, and beyond.</span>
+                <span class="es">¡Próximamente! Compartiré mis ideas y experiencias en Mecatrónica, Robótica, IA y más.</span>
+            </p>
+            <div class="animate-pulse" data-aos="fade-up" data-aos-delay="400">
+                 <div class="inline-block bg-teal-custom text-white font-montserrat font-semibold py-3 px-8 rounded-lg text-md">
+                    <span class="en">Stay Tuned</span>
+                    <span class="es">Mantente Atento</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Contact" class="hidden py-16 lg:py-24 bg-slate-900" data-aos="fade-up">
+        <div class="container mx-auto px-6 max-w-screen-md text-center">
+            <h2 class="text-4xl lg:text-5xl font-montserrat font-bold text-white mb-8" data-aos="fade-up">
+                <span class="en">Let's Connect</span>
+                <span class="es">Conectemos</span>
+            </h2>
+            <p class="text-lg text-slate-400 mb-10 font-opensans leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                <span class="en">I'm always open to discussing new projects, collaborations, or ideas. Feel free to reach out!</span>
+                <span class="es">Siempre estoy abierto a discutir nuevos proyectos, colaboraciones o ideas. ¡No dudes en contactarme!</span>
+            </p>
+            <div class="flex justify-center space-x-8 text-4xl md:text-5xl mb-10" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://twitter.com/joshuacobosval1" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-400 hover:text-teal-custom transition-all duration-300 ease-in-out transform hover:scale-110">
+                    <i class="fa fa-twitter" aria-label="Twitter Profile"></i>
+                </a>
+                <a href="https://github.com/LIMUNQUE" target="_blank" rel="noopener noreferrer"
+                    class="text-slate-400 hover:text-teal-custom transition-all duration-300 ease-in-out transform hover:scale-110">
+                    <i class="fa fa-github" aria-label="GitHub Profile"></i>
+                </a>
+            </div>
+            <p class="text-lg text-slate-400 font-opensans" data-aos="fade-up" data-aos-delay="500">
+                <span class="en">Or email me at:</span>
+                <span class="es">O envíame un correo a:</span>
+                <a href="mailto:joshuacobosvalle@hotmail.com" class="text-teal-custom hover:underline underline-offset-4 transition-colors duration-300 ease-in-out">joshuacobosvalle@hotmail.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-850 py-10 text-center border-t border-slate-700" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        <p class="text-slate-400 text-sm font-opensans">&copy; <span id="currentYear"></span> Joshua Cobos (LIMUNQUE). 
+            <span class="en">All rights reserved.</span>
+            <span class="es">Todos los derechos reservados.</span>
+        </p>
+    </footer>
 
     <!-- Loader -->
-    <div id="loader_ctn" class="grid place-content-center">
-        <img src="img/loader.svg" alt="">
+    <div id="loader_ctn" class="fixed inset-0 bg-slate-900 flex justify-center items-center z-[9999]">
+        <img src="img/loader.svg" alt="Loading..." class="w-16 h-16">
     </div>
 
     <script src="js/index.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

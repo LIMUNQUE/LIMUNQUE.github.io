@@ -16,34 +16,118 @@ let spanish = document.getElementsByClassName('es')
 let english = document.getElementsByClassName('en')
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementById('hidden-skills').style.display = "none";
+    // Default language setup
     for (var i = 0; i < spanish.length; i++) {
         spanish[i].style.display = "none";
         english[i].style.display = "block";
     }
+
+    // Hamburger Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menuLinks = document.getElementById('menu-links');
+    if (menuBtn && menuLinks) {
+        menuBtn.addEventListener('click', () => {
+            menuLinks.classList.toggle('hidden');
+            // Optional: Change hamburger icon to X and back
+            const icon = menuBtn.querySelector('svg path');
+            if (menuLinks.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16m-4 6h10');
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+    }
+    
+    // Close mobile menu when a link is clicked
+    const navLinksMobile = menuLinks.querySelectorAll('a.nav-link');
+    navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            if (!menuLinks.classList.contains('hidden') && window.innerWidth < 768) { // 768px is md breakpoint
+                menuLinks.classList.add('hidden');
+                menuBtn.querySelector('svg path').setAttribute('d', 'M4 6h16M4 12h16m-4 6h10');
+            }
+        });
+    });
+
+
+    // Scrollspy for Active Link Highlighting
+    const navLinks = document.querySelectorAll('nav a.nav-link');
+    const sections = [];
+    navLinks.forEach(link => {
+        const sectionId = link.getAttribute('href').substring(1);
+        const section = document.getElementById(sectionId);
+        if (section) {
+            sections.push({ link: link, section: section });
+        }
+    });
+
+    const navHeight = document.getElementById('main-nav') ? document.getElementById('main-nav').offsetHeight : 70; // Estimate nav height
+
+    window.addEventListener('scroll', () => {
+        let currentActive = null;
+
+        sections.forEach(item => {
+            const sectionTop = item.section.offsetTop - navHeight - 50; // Adjusted offset
+            const sectionBottom = sectionTop + item.section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                currentActive = item.link;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('text-teal-custom', 'font-bold');
+            link.classList.add('text-slate-300', 'font-semibold'); // Default state
+        });
+
+        if (currentActive) {
+            currentActive.classList.remove('text-slate-300');
+            currentActive.classList.add('text-teal-custom', 'font-bold');
+        } else {
+            // Fallback: if no section is "active" (e.g. very top or very bottom of page beyond sections)
+            // Highlight "Home" if at the very top.
+            if (sections.length > 0 && window.scrollY < sections[0].section.offsetTop - navHeight - 50) {
+                 const homeLink = document.querySelector('a.nav-link[href="#hero-nav-target"]');
+                 if (homeLink) {
+                    homeLink.classList.remove('text-slate-300');
+                    homeLink.classList.add('text-teal-custom', 'font-bold');
+                 }
+            }
+        }
+    });
+     // Trigger scroll once to set initial active link
+    window.dispatchEvent(new Event('scroll'));
+
 });
 
 function selectLan(el) {
-    lang = el.selectedIndex
+    const lang = el.value; // el.selectedIndex is for when options have no value attribute explicitly.
+                           // Using el.value is more robust if option values are 'en', 'es'.
+    
+    // Sync both language selectors if they exist
+    const langOptMobile = document.getElementById('lang-opt-mobile');
+    const langOptDesktop = document.getElementById('lang-opt-desktop');
 
-    if (lang == 0) {
+    if (langOptMobile && langOptMobile.value !== lang) {
+        langOptMobile.value = lang;
+    }
+    if (langOptDesktop && langOptDesktop.value !== lang) {
+        langOptDesktop.value = lang;
+    }
+
+    if (lang === "en") {
         for (var i = 0; i < spanish.length; i++) {
             spanish[i].style.display = "none";
+        }
+        for (var i = 0; i < english.length; i++) {
             english[i].style.display = "block";
         }
-    } else {
+    } else if (lang === "es") {
         for (var i = 0; i < spanish.length; i++) {
             spanish[i].style.display = "block";
+        }
+        for (var i = 0; i < english.length; i++) {
             english[i].style.display = "none";
         }
-    }
-}
-
-function showSkills() {
-    const skills = document.getElementById('hidden-skills');
-    if (skills.style.display === "none") {
-        skills.style.display = "block";
-    } else {
-        skills.style.display = "none";
     }
 }
