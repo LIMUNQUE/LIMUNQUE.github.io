@@ -19,7 +19,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // Default language setup
     for (var i = 0; i < spanish.length; i++) {
         spanish[i].style.display = "none";
-        english[i].style.display = "block";
+    }
+    for (var i = 0; i < english.length; i++) {
+        english[i].style.display = "block"; // Or consider '' to revert to CSS-defined display
+    }
+
+    // Set default selected language in dropdowns
+    const langOptMobile = document.getElementById('lang-opt-mobile');
+    const langOptDesktop = document.getElementById('lang-opt-desktop');
+    if (langOptMobile) {
+        langOptMobile.value = 'en';
+    }
+    if (langOptDesktop) {
+        langOptDesktop.value = 'en';
     }
 
     // Hamburger Menu Toggle
@@ -101,32 +113,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 function selectLan(el) {
-    const lang = el.value; // el.selectedIndex is for when options have no value attribute explicitly.
-                           // Using el.value is more robust if option values are 'en', 'es'.
+    const selectedLang = el.value;
     
-    // Sync both language selectors if they exist
+    // Sync both language selectors
     const langOptMobile = document.getElementById('lang-opt-mobile');
     const langOptDesktop = document.getElementById('lang-opt-desktop');
 
-    if (langOptMobile && langOptMobile.value !== lang) {
-        langOptMobile.value = lang;
+    if (el.id === 'lang-opt-mobile') {
+        if (langOptDesktop) langOptDesktop.value = selectedLang;
+    } else if (el.id === 'lang-opt-desktop') {
+        if (langOptMobile) langOptMobile.value = selectedLang;
     }
-    if (langOptDesktop && langOptDesktop.value !== lang) {
-        langOptDesktop.value = lang;
-    }
+    // Note: If there was an original #lang-opt, similar sync logic would be needed.
 
-    if (lang === "en") {
-        for (var i = 0; i < spanish.length; i++) {
+    if (selectedLang === "en") {
+        for (let i = 0; i < spanish.length; i++) {
             spanish[i].style.display = "none";
         }
-        for (var i = 0; i < english.length; i++) {
-            english[i].style.display = "block";
+        for (let i = 0; i < english.length; i++) {
+            english[i].style.display = "block"; // Or other appropriate visible style
         }
-    } else if (lang === "es") {
-        for (var i = 0; i < spanish.length; i++) {
-            spanish[i].style.display = "block";
+    } else if (selectedLang === "es") {
+        for (let i = 0; i < spanish.length; i++) {
+            spanish[i].style.display = "block"; // Or other appropriate visible style
         }
-        for (var i = 0; i < english.length; i++) {
+        for (let i = 0; i < english.length; i++) {
             english[i].style.display = "none";
         }
     }
