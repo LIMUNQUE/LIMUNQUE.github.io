@@ -51,10 +51,42 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #64748b; /* slate-500 */
         }
+
+        /* LIGHT THEME OVERRIDES (minimal, uses !important so layout/style remains identical) */
+        html.light body { background-color: #faf6f3e8 !important; color: #0f172a !important; transition: background-color .2s, color .2s; }
+        html.light .text-slate-300, html.light .text-white { color: #0f172a !important; }
+        html.light .text-slate-400 { color: #475569 !important; }
+        html.light .bg-slate-900 { background-color: #faf6f3e8 !important; }
+        html.light .bg-slate-850 { background-color: #faf6f3e8 !important; }
+        html.light .bg-slate-800 { background-color: #eef2f7 !important; }
+        html.light .bg-slate-700 { background-color: #e2e8f0 !important; }
+        html.light .border-slate-700 { border-color: #e2e8f0 !important; }
+        html.light #loader_ctn { background: #f8fafc !important; }
+        html.light ::-webkit-scrollbar-track { background: #f1f5f9; }
+        html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+        html.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Slight transition for theme toggle feedback */
+        #theme-toggle, #theme-toggle-desktop { transition: transform .12s ease-in-out; }
+        #theme-toggle:active, #theme-toggle-desktop:active { transform: scale(.95); }
     </style>
 </head>
 
 <body class="bg-slate-900 text-slate-300 font-opensans antialiased">
+    <!-- Floating controls: language + theme (non-intrusive) -->
+<div id="floating-controls" class="fixed bottom-6 right-6 z-50 flex items-center space-x-2">
+    <button id="lang-toggle-btn"
+            class="p-2 rounded-md bg-slate-700 border border-slate-600 text-white shadow-sm hover:bg-slate-600 focus:outline-none"
+            title="Cambiar idioma">
+      <span id="lang-label">ES</span>
+    </button>
+  
+    <button id="theme-toggle-float"
+            class="p-2 rounded-md bg-slate-700 border border-slate-600 text-white shadow-sm hover:bg-slate-600 focus:outline-none"
+            title="Cambiar tema" aria-label="Cambiar tema">
+      <svg id="theme-float-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"></svg>
+    </button>
+  </div>
 
     <!-- Hero Section -->
     <header id="hero" class="bg-slate-850 text-white min-h-screen flex flex-col justify-center items-center p-6 hidden relative overflow-hidden pt-20 md:pt-6"> <!-- Added pt for fixed nav space -->
@@ -68,6 +100,13 @@
                     <option value="en">EN</option>
                     <option value="es">ES</option>
                 </select>
+
+                <!-- Mobile Theme Toggle -->
+                <button id="theme-toggle" aria-label="Toggle theme" class="mr-3 p-2 rounded-md bg-slate-700 border border-slate-600 text-white focus:outline-none">
+                    <!-- Icon set by JS -->
+                    <svg id="theme-toggle-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"></svg>
+                </button>
+
                 <button id="menu-btn" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
                 </button>
@@ -96,10 +135,17 @@
                     <p class="en">Contact</p>
                     <p class="es">Contacto</p>
                 </a>
+
+                <!-- Desktop language selector -->
                 <select id="lang-opt-desktop" onchange="selectLan(this)" class="hidden md:block bg-slate-700 text-sm text-white border border-slate-600 rounded-md p-2 focus:ring-2 focus:ring-teal-custom focus:border-teal-custom appearance-none transition-all duration-300 ease-in-out ml-4">
                     <option value="en">English</option>
                     <option value="es">Español</option>
                 </select>
+
+                <!-- Desktop Theme Toggle -->
+                <button id="theme-toggle-desktop" aria-label="Toggle theme" class="hidden md:inline-flex ml-3 p-2 rounded-md bg-slate-700 border border-slate-600 text-white focus:outline-none">
+                    <svg id="theme-toggle-icon-desktop" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"></svg>
+                </button>
             </div>
         </nav>
         
@@ -135,7 +181,7 @@
             </div>
             <div class="md:col-span-3 text-slate-300" data-aos="fade-left" data-aos-delay="300">
                 <h3 class="en text-3xl font-montserrat font-semibold mb-5 text-teal-custom">I'm Joshua Cobos Valle</h3>
-                <h3 class="es text-3xl font-montserrat font-semibold mb-5 text-teal-custom">¡Hola!</h3>
+                <h3 class="es text-3xl font-montserrat font-semibold mb-5 text-teal-custom">Soy Joshua Cobos Valle</h3>
                 <p class="en text-lg mb-4 leading-relaxed font-opensans">I am a Mechatronics Engineer with extensive experience in computer vision (detection, segmentation, etc.) and robotics projects using ROS 2 (manipulators and autonomous robots). Passionate about cutting-edge technology, coding, and their application in intelligent systems.</p>
                 <p class="es text-lg mb-4 leading-relaxed font-opensans">Soy un Ingeniero Mecatrónico con amplia experiencia en visión artificial (detección, segmentación, etc.) y proyectos de robótica con ROS 2 (manipuladores y robots autónomos). Apasionado por la tecnología de vanguardia, la programación y su aplicación en sistemas inteligentes.</p>
                 <p class="en text-lg mb-4 leading-relaxed font-opensans">I hold a degree in Mechatronics Engineering and am dedicated to advancing my expertise in areas like artificial intelligence, machine learning, and their real-world applications in robotics and automation. I have a strong foundation in software development that supports these pursuits.</p>
@@ -266,8 +312,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- Contact Section -->
     <section id="Contact" class="hidden py-16 lg:py-24 bg-slate-900" data-aos="fade-up">
